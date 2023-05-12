@@ -1,64 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Aquí va la hoja de estilo CSS -->
     <link href="assets/css/style.css">
+    <!-- Aquí va la hoja de estilo de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- Aquí va el ícono de la app -->
+    <link rel="icon" href="assets/img/favicon_io/favicon.ico">
     <title>Presupuesto APP</title>
 </head>
 
 <body>
 
-<div class="container my-4";>
-    <h1>PRESUPUESTO APP</h1> 
-<div class="row">
-<div class="col-5 my-2" style="background-color: rgb(222, 255, 185);">
-    <h2 class="my-2">Ingresa tu presupuesto</h2> 
-    <input class="form-control" type="text" style="background-color: rgb(202, 253, 144);">
-    <button type="button" class="btn btn-outline-success my-3">Calcular</button>
-</div>
-<div class="col-2 mx-3">
-    <h4 style="display: inline;">PRESUPUESTO</h4>
-<hr>   
-</div>
-<div class="col-2 mx-3">
-    <h4 style="display: inline;">GASTOS</h4>
-<hr>    
-</div>
-<div class="col-2 mx-2">
-    <h4 style="display: inline;">SALDO</h4>
-<hr>    
-</div>
-</div>
 
-<div class="row">
-<div class="col-5 my-2" style="background-color: rgb(253, 164, 164);">
-    <h2 class="my-2">Ingresa el nombre del gasto</h2>
-    <input class="form-control" type="text" style="background-color: rgb(202, 83, 83);">
-<h2 class="my-2">Ingresa la cantidad del gasto</h2>
-    <input class="form-control" type="text" style="background-color: rgb(202, 83, 83);">
-    <button type="button" class="btn btn-outline-danger my-3">Añadir Gasto</button>
-</div>
-<div class="col-3 mx-3">
-    <h4 style="display: inline;">GASTO</h4>
-<hr>    
-</div>
-<div class="col-3 mx-4">
-    <h4 style="display: inline">VALOR</h4>
-<hr>    
+<div class="mt-4 mb-5">
+        <h1 class="text-center">PRESUPUESTO APP</h1>
 </div> 
 
 
+<div class="row container-fluid mt-3"">
+        <div class="p-2 text-center bg-success bg-opacity-25 border border-success border-4 rounded-5 mt-3 mx-1 col-4">
+        <h5 class="my-1">Ingresa tu presupuesto</h5>
+        <input class="form-control bg-success bg-opacity-25" type="number" min="0" id="ingresoPresupuesto" required">
+        <button type="button" class="btn btn-outline-success border-3 rounded-4 mt-3 text-center" id="btnCalcular">Calcular</button>
+        <button type="button" class="btn btn-outline-secondary border-3 rounded-4 mt-3 mx-3 text-center" id="btnModificar">Modificar</button>
+    </div>
 
+<!-- Aquí quedarán ingresados el presupuesto, gastos y el saldo -->
+    <div class="col-3 mt-3 text-center" id="presupuesto">
+        <h5>PRESUPUESTO</h5>
+        <p class="text-center">$0</p>
+    </div>
+    <div class="col-3 mt-3 text-center" id="gastos">
+        <h5>GASTOS</h5>
+        <p class="text-center">$0</p>  
+    </div>
+    <div class="col-1 mt-3 text-center" id="saldo">
+        <h5>SALDO</h5>
+        <p class="text-center">$0</p>  
+    </div>
 </div>
-</div>  
+
+
+<!-- Contenedor del formulario de gastos -->
+
+<div class="row container-fluid mt-3">
+    <div class="p-3 text-center bg-danger bg-opacity-25 border border-danger border-4 rounded-5 mt-3 mx-1 col-4">
+        <h5 class="my-1">Ingresa el nombre del gasto</h5>    
+        <input class="form-control text-center bg-danger bg-opacity-25" id="nombreGasto" type="text" pattern="[A-Z, a-z] {1,15}" required> 
+        <h5 class="my-1">Ingresa la cantidad del gasto</h5>
+        <input class="form-control text-center bg-danger bg-opacity-25" id="cantidadGasto" type="number">
+        <button type="button" class="btn btn-outline-danger border-3 rounded-4 mt-3 text-center" id="añadirgasto">Añadir Gasto</button>
+    </div>
+    
+
+
+
+<!-- Tabla de gastos -->
+<div class="w-50 mx-5 mt-2 reactTable">
+    <table id="table" class="table">
+        <thead>
+            <tr>
+                <th scope="col">GASTO</th>
+                <th scope="col">VALOR</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody id="tBody">
+
+        </tbody>
+    </table>
+</div>
 </div>
 
+ 
 
-
+<!-- Script de Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<!-- Script de JavaScript -->
 <script src="assets/js/script.js"></script>
 </body>
 </html>
