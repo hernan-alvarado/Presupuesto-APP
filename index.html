@@ -1,87 +1,85 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Aquí va la hoja de estilo CSS -->
-    <link href="assets/css/style.css">
-    <!-- Aquí va la hoja de estilo de Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <!-- Aquí va el ícono de la app -->
-    <link rel="icon" href="assets/img/favicon_io/favicon.ico">
-    <title>Presupuesto APP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+  <title>Presupuesto APP </title>
 </head>
 
 <body>
 
+  <nav class="navbar nav-light mb-5" id="navbarColor">
+    <div class="container-fluid">
+      <a class="navbar-brand" id="tituloPagina">Presupuesto App</a>
+      <button class="btn-secondary bg-primary me-5" id="botonRecargar" type="button">Actualizar página</button>
+    </div>
+  </nav>
 
-<div class="mt-4 mb-5">
-        <h1 class="text-center">PRESUPUESTO APP</h1>
-</div> 
-
-
-<div class="row container-fluid mt-3"">
-        <div class="p-2 text-center bg-success bg-opacity-25 border border-success border-4 rounded-5 mt-3 mx-1 col-4">
-        <h5 class="my-1">Ingresa tu presupuesto</h5>
-        <input class="form-control bg-success bg-opacity-25" type="number" min="0" id="ingresoPresupuesto" required">
-        <button type="button" class="btn btn-outline-success border-3 rounded-4 mt-3 text-center" id="btnCalcular">Calcular</button>
-        <button type="button" class="btn btn-outline-secondary border-3 rounded-4 mt-3 mx-3 text-center" id="btnModificar">Modificar</button>
+  <section class="row mt-3 mb-5">
+    <div class="border border-success rounded-2 mt-2 mx-4 border-3 col-md-5 col-12">
+      <span class="mb-2">Ingresa Tu Presupuesto</span>
+      <input class="w-100 mb-2" id="input-Presupuesto" type="number" min="0" required>
+      <button type="button" class="btn btn-outline-success mb-2" id="btncalcular">Calcular</button>
     </div>
 
-<!-- Aquí quedarán ingresados el presupuesto, gastos y el saldo -->
-    <div class="col-3 mt-3 text-center" id="presupuesto">
-        <h5>PRESUPUESTO</h5>
-        <p class="text-center">$0</p>
+    <div class="col-md-2 col-4 my-5 my-md-0">
+      <b>
+        <p class="text-rounded w-25">PRESUPUESTO</p>
+      </b><span id="imprimePresupuesto">$0000</span>
     </div>
-    <div class="col-3 mt-3 text-center" id="gastos">
-        <h5>GASTOS</h5>
-        <p class="text-center">$0</p>  
+    <div class="col-md-2 col-4 my-5 my-md-0">
+      <b>
+        <p class=" text-rounded w-25">GASTOS</p>
+      </b><span id="imprimeCantidadGasto">$0000</span>
     </div>
-    <div class="col-1 mt-3 text-center" id="saldo">
-        <h5>SALDO</h5>
-        <p class="text-center">$0</p>  
+    <div class="col-md-2 col-4 my-5 my-md-0">
+      <b>
+        <p class=" text-rounded w-25">SALDO</p>
+      </b><span id="actualizaSaldo">$0000</span>
     </div>
-</div>
+  </section>
 
 
-<!-- Contenedor del formulario de gastos -->
+  <section class="row mt-2">
+    <div class="border border-danger rounded-2 mt-2 mx-4 border-3 color-rojo-opaco col-md-5 col-12">
+      <span class="mb-2">Ingresa El Nombre Del Gasto</span>
+      <input class="w-100" id="input-NombreGasto" type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" required>
 
-<div class="row container-fluid mt-3">
-    <div class="p-3 text-center bg-danger bg-opacity-25 border border-danger border-4 rounded-5 mt-3 mx-1 col-4">
-        <h5 class="my-1">Ingresa el nombre del gasto</h5>    
-        <input class="form-control text-center bg-danger bg-opacity-25" id="nombreGasto" type="text" pattern="[A-Z, a-z] {1,15}" required> 
-        <h5 class="my-1">Ingresa la cantidad del gasto</h5>
-        <input class="form-control text-center bg-danger bg-opacity-25" id="cantidadGasto" type="number">
-        <button type="button" class="btn btn-outline-danger border-3 rounded-4 mt-3 text-center" id="añadirgasto">Añadir Gasto</button>
+      <span class="mt-3 mb-2">Ingresa la Cantidad del Gasto</span>
+      <input class="w-100 mb-2" id="input-CantidadGasto" type="number" min="0" required>
+      <button type="button" class="btn btn-outline-danger mb-2" id="btnAñadirGasto">Añadir Gasto</button>
+      <div class="alert alert-primary border" id="alertaAnadirGastos" role="alert">
+       Ingrese un presupuesto para calcular sus gastos.
+      </div>
     </div>
-    
 
-
-
-<!-- Tabla de gastos -->
-<div class="w-50 mx-5 mt-2 reactTable">
-    <table id="table" class="table">
-        <thead>
-            <tr>
-                <th scope="col">GASTO</th>
-                <th scope="col">VALOR</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-            </tr>
+    <div class="col-md-6 col-12">
+      <table class="table col-5 table-info" id="Tabla">
+        <thead class="table-info">
+          <tr class="table-info">
+            <th scope="col" class="w-25 table-info">GASTO</th>
+            <th scope="col" class="me-2 table-info">VALOR</th>
+            <th scope="col" class="me-2 table-info"></th>
+          </tr>
         </thead>
-        <tbody id="tBody">
-
+        <tbody class="table-info">
         </tbody>
-    </table>
-</div>
-</div>
+      </table>
+    </div>
+  </section>
 
- 
 
-<!-- Script de Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-<!-- Script de JavaScript -->
-<script src="assets/js/script.js"></script>
 </body>
+
+<!--  <script src="Asset/Js/jquery-3.6.4.min.js"></script> -->
+<script src="assets/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </html>
