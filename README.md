@@ -1,4 +1,4 @@
-## Aplicación para calcular presupuesto de gastos e ingresos
+## Aplicación para calcular presupuesto
 En este sitio puedes ingresar un presupuesto diario, semanal o mensual el cual se agregará a una tabla.
 A su vez, puedes agregar gastos con nombre y cantidad, los cuales van a actualizar tu saldo.
 Los ítems de gastos que vayas colocando se pueden eliminar, reflejándose un nuevo presupuesto disponible.
